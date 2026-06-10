@@ -1,0 +1,684 @@
+/* Custom CSS for Melara Landing Page */
+
+/* Base Reset & Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #1960FF;
+    --accent-color: #2E7A36;
+    --accent-hover: #1A7A21;
+    --dark-color: #000000;
+    --light-bg: #F0F0F0;
+    --white: #FFFFFF;
+    --text-color: #333333;
+    --gray-text: #666666;
+    --border-radius-lg: 20px;
+    --border-radius-md: 10px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--white);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 1. Header Announcement Bar */
+.promo-bar {
+    background-color: var(--dark-color);
+    color: var(--white);
+    text-align: center;
+    padding: 12px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* 2. Hero Section */
+.hero-section {
+    padding: 60px 0 90px 0;
+    background-color: var(--white);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.rating-badge {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--dark-color);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.rating-stars {
+    color: #E8BF00;
+}
+
+.hero-title {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--dark-color);
+}
+
+.hero-subtitle {
+    font-size: 19px;
+    font-weight: 300;
+    color: #444;
+}
+
+.green-divider {
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 10px 0;
+}
+
+.blue-divider {
+    width: 120px;
+    height: 5px;
+    background-color: var(--primary-color);
+    margin: 15px auto;
+}
+
+.benefit-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 10px 0;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.benefit-icon {
+    color: var(--primary-color);
+    font-size: 20px;
+}
+
+/* CTA Buttons */
+.cta-btn {
+    display: inline-block;
+    background-color: var(--dark-color);
+    color: var(--white);
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    padding: 18px 40px;
+    border-radius: var(--border-radius-md);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    cursor: pointer;
+    width: fit-content;
+}
+
+.cta-btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26, 122, 33, 0.3);
+}
+
+.hero-image-wrapper img {
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 90%;
+    margin-left: auto;
+}
+
+/* 3. Brands Grid */
+.brands-section {
+    background-color: var(--dark-color);
+    padding: 40px 0;
+}
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    align-items: center;
+    justify-items: center;
+}
+
+.brands-grid img {
+    max-height: 40px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.brands-grid img:hover {
+    opacity: 1;
+}
+
+/* 4. Feature Section 1 (Three columns) */
+.feature-intro-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.intro-title {
+    font-size: 36px;
+    font-weight: 700;
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    line-height: 1.3;
+}
+
+.intro-subtitle {
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--gray-text);
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+.feature-columns-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.feature-column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.feature-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: left;
+    background-color: #fafafa;
+    padding: 15px;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.feature-box i {
+    color: #E8BF00;
+    font-size: 24px;
+}
+
+.feature-box span {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.feature-center-image img {
+    margin: 0 auto;
+    border-radius: var(--border-radius-lg);
+    max-width: 95%;
+}
+
+/* 5. Alternating Benefit Sections */
+.viral-section {
+    padding: 60px 0;
+    background-color: var(--light-bg);
+}
+
+.viral-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.viral-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.viral-header p {
+    font-size: 20px;
+    color: var(--gray-text);
+}
+
+.benefit-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.benefit-row:nth-child(even) {
+    background-color: var(--white);
+}
+
+.benefit-row.white-bg {
+    background-color: var(--white);
+}
+
+.benefit-row-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.benefit-row-title {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.benefit-row-desc {
+    font-size: 19px;
+    font-weight: 300;
+    color: #555;
+    line-height: 1.6;
+}
+
+.benefit-row-image img {
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* 6. Everyday Upgrade Section */
+.upgrade-section {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.upgrade-desc {
+    text-align: center;
+    font-size: 18px;
+    max-width: 800px;
+    margin: 20px auto 50px auto;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.upgrade-card {
+    background-color: #EBEBEB;
+    padding: 30px 20px;
+    border-radius: var(--border-radius-md);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: transform 0.3s;
+}
+
+.upgrade-card:hover {
+    transform: translateY(-5px);
+}
+
+.upgrade-card h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.upgrade-card p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 7. Facebook Testimonials Section */
+.testimonials-section {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.comments-container {
+    max-width: 750px;
+    margin: 40px auto 0 auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.comment-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 20px;
+}
+
+.comment-row:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.comment-avatar img {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.comment-body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+
+.comment-bubble {
+    background-color: #f1f5f9;
+    padding: 12px 16px;
+    border-radius: 12px;
+}
+
+.comment-name {
+    font-weight: 700;
+    color: #1a56db;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.comment-text {
+    font-size: 14px;
+    color: #1e293b;
+    line-height: 1.5;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 15px;
+    font-size: 13px;
+    color: #64748b;
+    padding-left: 5px;
+}
+
+.comment-actions a {
+    font-weight: 600;
+    color: #173FC2;
+}
+
+.comment-actions a:hover {
+    text-decoration: underline;
+}
+
+/* 8. Final CTA Section */
+.final-cta-section {
+    padding: 90px 0;
+    background-color: #EDEDED;
+}
+
+.final-cta-card {
+    background-color: var(--white);
+    border-radius: 30px;
+    padding: 60px 40px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+}
+
+.cta-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.cta-image img {
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    margin: 0 auto;
+    max-width: 90%;
+}
+
+.cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.cta-title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.cta-subtitle {
+    font-size: 20px;
+    font-weight: 300;
+    color: #444;
+}
+
+.cta-btn-large {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    font-size: 24px;
+}
+
+.cards-logo {
+    max-width: 280px;
+    margin: 5px auto;
+}
+
+.guarantee-text {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* 9. Footer Section */
+.footer-section {
+    background-color: var(--dark-color);
+    color: var(--white);
+    padding: 60px 0 40px 0;
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.footer-copy {
+    font-size: 15px;
+    font-weight: 300;
+    opacity: 0.8;
+    margin-bottom: 25px;
+}
+
+.footer-disclaimer {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    opacity: 0.6;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+}
+
+.footer-links a {
+    font-size: 12px;
+    font-weight: 300;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .cards-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 968px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-content {
+        align-items: center;
+    }
+
+    .green-divider {
+        margin: 10px auto;
+    }
+
+    .hero-image-wrapper img {
+        margin: 0 auto;
+        max-width: 80%;
+    }
+
+    .feature-columns-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-center-image {
+        order: -1;
+    }
+
+    .benefit-row {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .benefit-row-image {
+        order: -1;
+    }
+
+    .cta-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .cta-image {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .brands-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .intro-title {
+        font-size: 26px;
+    }
+
+    .intro-subtitle {
+        font-size: 16px;
+    }
+
+    .viral-header h2 {
+        font-size: 24px;
+    }
+
+    .viral-header p {
+        font-size: 16px;
+    }
+
+    .benefit-row-title {
+        font-size: 22px;
+    }
+
+    .benefit-row-desc {
+        font-size: 16px;
+    }
+
+    .cta-title {
+        font-size: 26px;
+    }
+
+    .cta-subtitle {
+        font-size: 16px;
+    }
+
+    .cta-btn {
+        width: 100%;
+        font-size: 18px;
+        padding: 15px 20px;
+    }
+
+    .cta-btn-large {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .comment-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .comment-actions {
+        margin-top: 5px;
+    }
+}
