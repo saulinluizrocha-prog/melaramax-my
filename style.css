@@ -1,4 +1,6 @@
-/* Custom CSS for Melara Landing Page */
+html {
+    scroll-behavior: smooth;
+}
 
 /* Base Reset & Variables */
 * {
@@ -179,15 +181,18 @@ img {
     justify-items: center;
 }
 
-.brands-grid img {
+.brands-grid img,
+.brands-grid svg {
     max-height: 40px;
     width: auto;
+    max-width: 120px;
     filter: brightness(0) invert(1);
     opacity: 0.8;
     transition: opacity 0.3s;
 }
 
-.brands-grid img:hover {
+.brands-grid img:hover,
+.brands-grid svg:hover {
     opacity: 1;
 }
 
