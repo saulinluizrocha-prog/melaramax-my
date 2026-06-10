@@ -188,6 +188,26 @@
         .eeat-footer nav a:hover{color:#fff;text-decoration:underline}
         .eeat-footer .eeat-disclaimer{font-size:.78rem;font-weight:300;color:#8a8f9c;max-width:760px;margin:0 auto 14px;line-height:1.6}
         .eeat-footer .eeat-copy{font-size:.8rem;color:#8a8f9c}
+        /* Contador regressivo (sincronizado ao fuso da Malásia) */
+        .countdown-box{background:#10131a;border-radius:12px;padding:16px 20px;margin:0 auto 18px;max-width:420px;text-align:center}
+        .countdown-label{color:#ffd166;font-size:.78rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:8px;font-family:'Poppins',sans-serif}
+        .countdown-timer{display:flex;justify-content:center;gap:10px}
+        .countdown-unit{background:#1d2230;border-radius:8px;padding:8px 0;min-width:64px}
+        .countdown-unit span{display:block;color:#fff;font-size:1.5rem;font-weight:700;font-family:'Poppins',sans-serif;line-height:1.1}
+        .countdown-unit small{color:#8a8f9c;font-size:.65rem;text-transform:uppercase;letter-spacing:1px;font-family:'Poppins',sans-serif}
+        /* Âncora de preço */
+        .price-anchor{text-align:center;margin:0 auto 16px;font-family:'Poppins',sans-serif}
+        .price-old{color:#9aa0ad;font-size:1.1rem;text-decoration:line-through;font-weight:400}
+        .price-new{color:#16a34a;font-size:2rem;font-weight:700;margin:0 10px}
+        .price-save{display:inline-block;background:#e8f9ee;color:#16803c;font-size:.8rem;font-weight:600;padding:4px 12px;border-radius:20px;margin-top:6px}
+        .price-note{display:block;color:#6b7280;font-size:.75rem;font-weight:300;margin-top:4px}
+        /* Sticky CTA mobile */
+        .sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#fff;border-top:1px solid #e5e7eb;box-shadow:0 -4px 16px rgba(0,0,0,.12);padding:10px 14px;align-items:center;justify-content:space-between;gap:12px;font-family:'Poppins',sans-serif}
+        .sticky-cta .sticky-price{line-height:1.2}
+        .sticky-cta .sticky-price .old{color:#9aa0ad;font-size:.75rem;text-decoration:line-through;display:block}
+        .sticky-cta .sticky-price .new{color:#16a34a;font-size:1.15rem;font-weight:700}
+        .sticky-cta a{flex:1;max-width:230px;background:#16a34a;color:#fff;text-decoration:none;text-align:center;font-weight:600;font-size:.85rem;padding:13px 10px;border-radius:8px}
+        @media (max-width:768px){.sticky-cta{display:flex}body{padding-bottom:70px}}
     </style>
 </head>
 <body>
@@ -603,6 +623,25 @@
                         <p class="cta-subtitle">Permintaan sangat tinggi — stok semakin berkurangan. Jangan lepaskan peluang ini.</p>
                         
                         <div class="green-divider"></div>
+
+                        <!-- ===== CVR INJECTION: Contador regressivo sincronizado ===== -->
+                        <div class="countdown-box">
+                            <div class="countdown-label">⏳ Tawaran tamat dalam:</div>
+                            <div class="countdown-timer" id="melara-countdown">
+                                <div class="countdown-unit"><span id="cd-h">--</span><small>Jam</small></div>
+                                <div class="countdown-unit"><span id="cd-m">--</span><small>Minit</small></div>
+                                <div class="countdown-unit"><span id="cd-s">--</span><small>Saat</small></div>
+                            </div>
+                        </div>
+
+                        <!-- ===== CVR INJECTION: Âncora de preço ===== -->
+                        <div class="price-anchor">
+                            <span class="price-old">RM2,612.80</span>
+                            <span class="price-new">RM783.84</span>
+                            <br>
+                            <span class="price-save">Anda jimat RM1,828.96 (70% OFF)</span>
+                            <span class="price-note">*Pakej 4 unit — harga terbaik. Sahkan harga semasa di halaman pembayaran.</span>
+                        </div>
                         
                         <a href="https://www.knownwalk.com/2GT22MM1/22JQ9DB7/?uid=5173" class="cta-btn cta-btn-large" target="_blank" rel="nofollow sponsored noopener">
                             DAPATKAN DISKAUN 70% SEKARANG!
@@ -698,6 +737,44 @@
             <p class="eeat-copy">&copy; 2026 Hak Cipta Terpelihara Melara</p>
         </div>
     </footer>
+    <!-- ===== CVR INJECTION: Sticky CTA Mobile ===== -->
+    <div class="sticky-cta">
+        <div class="sticky-price">
+            <span class="old">RM2,612.80</span>
+            <span class="new">RM783.84</span>
+        </div>
+        <a href="https://www.knownwalk.com/2GT22MM1/22JQ9DB7/?uid=5173" target="_blank" rel="nofollow sponsored noopener">DAPATKAN 70% OFF →</a>
+    </div>
+
+    <!-- ===== CVR INJECTION: Script do contador (sincronizado, sem fake reset) ===== -->
+    <script>
+    (function(){
+        // Deadline real e sincronizado: meia-noite no fuso da Malásia (UTC+8).
+        // Todos os visitantes veem o MESMO tempo restante — sem reset aleatório por sessão.
+        function deadlineMY(){
+            var now = new Date();
+            var utcMs = now.getTime() + (now.getTimezoneOffset() * 60000);
+            var myNow = new Date(utcMs + (8 * 3600000)); // hora atual na Malásia
+            var end = new Date(myNow);
+            end.setHours(24, 0, 0, 0); // próxima meia-noite MY
+            return end.getTime() - myNow.getTime();
+        }
+        var h = document.getElementById('cd-h'),
+            m = document.getElementById('cd-m'),
+            s = document.getElementById('cd-s');
+        if(!h) return;
+        function pad(n){ return n < 10 ? '0' + n : '' + n; }
+        function tick(){
+            var diff = deadlineMY();
+            if(diff < 0) diff = 0;
+            h.textContent = pad(Math.floor(diff / 3600000));
+            m.textContent = pad(Math.floor((diff % 3600000) / 60000));
+            s.textContent = pad(Math.floor((diff % 60000) / 1000));
+        }
+        tick();
+        setInterval(tick, 1000);
+    })();
+    </script>
 
 </body>
 </html>
